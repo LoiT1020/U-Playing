@@ -1,6 +1,6 @@
 const User = require('./User');
-const Product = require('./Product');
-const Category = require('./Category');
-const playlist = require('./List');
+const Game = require('./Games-API');
+const GameSearched = require('./Game-search');
+
 
 module.exports = { User, Product, Category, playlist };

@@ -35,21 +35,9 @@ const typeDefs = gql`
     genres: [Genres]
   }
   type Games {
-    count: Int!
     results: [Results]!
   }
-  type Category {
-    _id: ID
-    name: String
-  }
-  type Product {
-    _id: ID
-    name: String
-    description: String
-    image: String
-    price: Float
-    category: Category
-  }
+ 
   type playlist {
     _id: ID
     products: [Product]
