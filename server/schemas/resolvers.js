@@ -3,6 +3,8 @@ const { User, Product, Category, playlist } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const fetch = require('node-fetch');
+
+
 const resolvers = {
 
     Query: {
