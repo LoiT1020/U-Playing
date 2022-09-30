@@ -1,7 +1,7 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Product, Category, playlist } = require('../models');
 const { signToken } = require('../utils/auth');
-const {FetchGames, FetchSearch} = require('../utils/rawgAPI')
+
 const fetch = require('node-fetch');
 const resolvers = {
 
