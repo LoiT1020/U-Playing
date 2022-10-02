@@ -1,7 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
-
+import {QUERY_GAMES} from './utils/queries'
+import {useQuery} from '@apollo/client'
 function App() {
+const {loading, data} = useQuery(QUERY_GAMES);
+const games = data?.games || [];
+console.log(games)
+
   return (
     <div className="App">
       <header className="App-header">
