@@ -1,6 +1,6 @@
 {
-  "name": "server-You-Playing?!",
-  "version": "1.0.0",
+  "name": "server-you-playing",
+  "version": "0.1.0",
   "description": "",
   "main": "server.js",
   "scripts": {

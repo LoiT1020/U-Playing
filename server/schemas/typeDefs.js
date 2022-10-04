@@ -29,7 +29,6 @@ const typeDefs = gql`
     id: ID
     name: String
     background_image: String 
-    rating: Int!
     metacritic: Int
     platforms : [Platform]
     genres: [Genres]
@@ -47,10 +46,9 @@ const typeDefs = gql`
     firstName: String
     lastName: String
     email: String
-    playlist: [playlist]
   }
   type Auth {
-    token: ID
+    token: ID!
     user: User
   }
   type Query {
@@ -59,12 +57,11 @@ const typeDefs = gql`
     categories: [Category]
     products(category: ID, name: String): [Product]
     product(_id: ID!): Product
-    user: User
-    playlist(_id: ID!): playlist
+    users: [User]
+
   }
   type Mutation {
     addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
-    addplaylist(products: [ID]!): playlist
     updateUser(firstName: String, lastName: String, email: String, password: String): User
     updateProduct(_id: ID!, quantity: Int!): Product
     login(email: String!, password: String!): Auth
