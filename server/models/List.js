@@ -7,7 +7,7 @@ const playlistSchema = new Schema({
   products: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'Product'
+      ref: ''
     }
   ]
 });
