@@ -21,6 +21,12 @@ const userSchema = new Schema({
     required: true,
     trim: true
   },
+  username: {
+    type: String,
+    required: true,
+    unique: true,
+    trim: true
+  },
   email: {
     type: String,
     unique: true,
@@ -36,8 +42,21 @@ const userSchema = new Schema({
     required: true,
     minlength: 5
   },
+
+  Reviews:[{
+    type: Schema.type.objectId,
+      ref: 'Review'
+  }]
   
-});
+},
+
+{
+  toJSON: {
+    virtuals: true
+  }
+}
+
+);
 
 // set up pre-save middleware to create password
 userSchema.pre('save', async function(next) {

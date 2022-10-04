@@ -9,11 +9,11 @@ const resolvers = {
 
     Query: {
         allGames : async() => {
-            const response = await fetch(`https://rawg.io/api/games?token&key=${process.env.REACT_APP_API_KEY}`);
+            const response = await fetch(`https://rawg.io/api/games?token&key=33761726586d462d81dbf4018fe2e169`);
             return response.json();
         },
         searchGame: async(_, {id}) => { 
-            const response = await fetch(`https://api.rawg.io/api/games/${id}?token&key=${process.env.REACT_APP_API_KEY}`);
+            const response = await fetch(`https://api.rawg.io/api/games/${id}?token&key=33761726586d462d81dbf4018fe2e169`);
             return response.json();
         },
         users: async ()=> {

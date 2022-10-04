@@ -14,6 +14,7 @@ const Pfinfoschema= new Schema ({
     }
 });
 
+const PlatformInfo= mongoose.model('PlatformInfo',Pfinfoschema)
 
 const Platformschema = new Schema ({
     platform: [PlatformInfo.schema],
@@ -22,7 +23,7 @@ const Platformschema = new Schema ({
     }
 })
  
-const PlatformInfo= mongoose.model('PlatformInfo',Pfinfoschema)
+
 const Platform= mongoose.model ('Platform',Platformschema)
 
 module.exports = Platform;

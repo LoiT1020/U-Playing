@@ -26,7 +26,7 @@ const ResultsSchema= new Schema({
     type:Number,
     required: true,
   },
-  platforms:[Platform],
+  platforms:[Platform.schema],
   genres:[Genres]
 
 })

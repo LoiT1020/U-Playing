@@ -29,7 +29,7 @@ const onegame = new Schema({
     website: {
         type: String
     },
-    platform: [Platform]
+   
 
 })
 
