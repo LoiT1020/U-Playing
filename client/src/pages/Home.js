@@ -1,11 +1,11 @@
 import React from "react";
+import Display from "../components/Display";
 
-import GameList from "../components/GameList";g
-
+import GameList from "../components/GameList";
 function Home() {
   return (
     <div>
-      <Display />
+     <Display />
     </div>
   );
 }
