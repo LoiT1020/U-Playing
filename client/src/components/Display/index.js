@@ -18,7 +18,7 @@ function Display () {
       return (
         <div>
          <h1>{currentGame.name}</h1>
-         <p>{currentGame.description}</p>
+        <p dangerouslySetInnerHTML={{__html: currentGame.description}}/>
          <img src ={currentGame.background_image} alt={currentGame.name} ></img>
          <a href={currentGame.website}> {currentGame.website}</a>
          <p>{currentGame.released}</p>
