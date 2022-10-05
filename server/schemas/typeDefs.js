@@ -12,7 +12,7 @@ const typeDefs = gql`
     _id:ID
     reviewText:String
     createdAt:String
-    username:String
+    email:String
     replyCount:Int
     replies:[Reply]
   }
@@ -29,9 +29,10 @@ type Reply{
   }
   type Query {
     me: User
-    reviews(username: String): [Review]
     users: [User]
-
+    user(username: String!): User
+    reviews(username: String): [Review]
+    review(_id:ID!): Review
   }
   type Mutation {
     addUser(username:String!, email: String!, password: String!): Auth
