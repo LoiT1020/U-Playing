@@ -17,10 +17,10 @@ const resolvers = {
             const params = email ? {email} : {};
             return Review.find(params).sort({createdAt: -1})
         },
-        allGames : async() => {
-            const response = await fetch(`https://rawg.io/api/games?token&key=${process.env.REACT_APP_API_KEY}`);
-            return response.json();
-        },
+        // allGames : async() => {
+        //     const response = await fetch(`https://rawg.io/api/games?token&key=${process.env.REACT_APP_API_KEY}`);
+        //     return response.json();
+        // },
         searchGame: async(_, {id}) => { 
             const response = await fetch(`https://api.rawg.io/api/games/${id}?token&key=${process.env.REACT_APP_API_KEY}`);
             return response.json();

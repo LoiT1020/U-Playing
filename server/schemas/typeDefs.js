@@ -42,7 +42,6 @@ const typeDefs = gql`
     reviewText:String
     createdAt:String
     email:String
-    
 
   }
   type User {
@@ -57,9 +56,8 @@ const typeDefs = gql`
   }
   type Query {
     users: [User]
-    reviews(email: String): [Review]
+    reviews(email: String): [Review]  
     me: User
-    allGames: Games!
     searchGame(id: String!): GameSearched!
   }
   type Mutation {

@@ -6,12 +6,7 @@ const ReviewList = ({reviews,title,location}) => {
 if (!reviews.length ) {
     return <h2>No Reviews</h2>
 }
-if (location !== reviews){
-    return (
-        <h1> Hello</h1>
-        
-    )
-}
+
 
     return (
         <div>

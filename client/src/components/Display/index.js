@@ -8,6 +8,7 @@ import { QUERY_REVIEWS } from '../../utils/queries';
 import Auth from '../../utils/auth'
 function Display () {
     const {data} = useQuery(QUERY_REVIEWS);
+    console.log(data)
   const location = useLocation();
 console.log(location)
     const reviews= data?.reviews || [];
