@@ -1,8 +1,6 @@
-const mongoose = require('mongoose');
-
-const { Schema } = mongoose;
+const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
-const playlist = require('./List');
+
 
 
 var validateEmail = function (email) {
@@ -11,16 +9,7 @@ var validateEmail = function (email) {
 };
 
 const userSchema = new Schema({
-  firstName: {
-    type: String,
-    required: true,
-    trim: true
-  },
-  lastName: {
-    type: String,
-    required: true,
-    trim: true
-  },
+
   username: {
     type: String,
     required: true,
@@ -43,8 +32,8 @@ const userSchema = new Schema({
     minlength: 5
   },
 
-  Reviews:[{
-    type: Schema.type.objectId,
+  reviews:[{
+    type: Schema.Types.ObjectId,
       ref: 'Review'
   }]
   
@@ -73,6 +62,6 @@ userSchema.methods.isCorrectPassword = async function(password) {
   return await bcrypt.compare(password, this.password);
 };
 
-const User = mongoose.model('User', userSchema);
+const User = model('User', userSchema);
 
 module.exports = User;

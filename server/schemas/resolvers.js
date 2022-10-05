@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Product, Category, playlist } = require('../models');
+const { User, Review } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const fetch = require('node-fetch');
@@ -8,28 +8,25 @@ const fetch = require('node-fetch');
 const resolvers = {
 
     Query: {
-        allGames : async() => {
-            const response = await fetch(`https://rawg.io/api/games?token&key=33761726586d462d81dbf4018fe2e169`);
-            return response.json();
-        },
-        searchGame: async(_, {id}) => { 
-            const response = await fetch(`https://api.rawg.io/api/games/${id}?token&key=33761726586d462d81dbf4018fe2e169`);
-            return response.json();
-        },
+        
         users: async ()=> {
             return User.find()
-            .select('-__v -password')
-            
+            .select('-__v -password')         
         },
-        // playlist: async (parent, {_id}, context) => {
-        //     if (context.user) {
-        //         const user = await User.findById(context.user._id).populate({
-        //             path: 'playlist.Results.name',
-        //             populate: 'playlist'
-        //         });
-        //         return user.playlist.id(_id);
-        //     }
-        // }
+        reviews: async ( parent, {username}) =>{
+            const params= username ? {username} :{};
+            return Review.find(params).sort({createdAt:-1})
+        },
+        me: async (parent, args, context) => {
+            if (context.user) {
+                const userData = await User.findOne({ _id: context.user._id })
+                    .select('-__v -password')
+
+                return userData;
+            }
+
+            throw new AuthenticationError('Not logged in!');
+        }
         
     },
     Mutation: {
@@ -57,6 +54,20 @@ const resolvers = {
 
             return {token, user};
         },
+        addReview: async (parent, args, context) => {
+            if (context.user) {
+                const review = await Review.create({...args, username: context.user.username });
+
+                await User.findByIdAndUpdate(
+                    { _id: context.user._id },
+                    
+                    { new: true }
+                );
+                return review;
+            }
+
+            throw new AuthenticationError('You need to be logged in!');
+        }
        
     }
 };
