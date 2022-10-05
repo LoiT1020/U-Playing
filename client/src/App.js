@@ -10,7 +10,6 @@ import Display from './components/Display';
 import Detail from './pages/Detail';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
-import ReviewList from './components/ReviewList';
 const httpLink = createHttpLink({
   uri: '/graphql'
 });
