@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Product, Category, playlist } = require('../models');
+const { User, Review} = require('../models');
 const { signToken } = require('../utils/auth');
 
 const fetch = require('node-fetch');
@@ -8,28 +8,31 @@ const fetch = require('node-fetch');
 const resolvers = {
 
     Query: {
-        allGames : async() => {
-            const response = await fetch(`https://rawg.io/api/games?token&key=33761726586d462d81dbf4018fe2e169`);
-            return response.json();
-        },
-        searchGame: async(_, {id}) => { 
-            const response = await fetch(`https://api.rawg.io/api/games/${id}?token&key=33761726586d462d81dbf4018fe2e169`);
-            return response.json();
-        },
         users: async ()=> {
             return User.find()
             .select('-__v -password')
             
         },
-        // playlist: async (parent, {_id}, context) => {
-        //     if (context.user) {
-        //         const user = await User.findById(context.user._id).populate({
-        //             path: 'playlist.Results.name',
-        //             populate: 'playlist'
-        //         });
-        //         return user.playlist.id(_id);
-        //     }
-        // }
+        reviews : async(parent, {email}) => {
+            const params = email ? {email} : {};
+            return Review.find(params).sort({createdAt: -1})
+        },
+        // allGames : async() => {
+        //     const response = await fetch(`https://rawg.io/api/games?token&key=${process.env.REACT_APP_API_KEY}`);
+        //     return response.json();
+        // },
+        searchGame: async(_, {id}) => { 
+            const response = await fetch(`https://api.rawg.io/api/games/${id}?token&key=${process.env.REACT_APP_API_KEY}`);
+            return response.json();
+        },
+        me : async (parent, {_id}) => {
+            if(context.user) {
+                const userData = await User.findOne({_id: context.user._id}).select(
+                    "-__v -password"
+                );
+                return userData;
+            }
+        }
         
     },
     Mutation: {
@@ -56,6 +59,24 @@ const resolvers = {
             const token = signToken(user);
 
             return {token, user};
+        },
+        addReview: async (parent, args, context) => {
+            if (context.user) {
+              
+                console.log(context.user)
+    
+                const review = await Review.create({ ...args, email: context.user.email });
+    
+                await User.findByIdAndUpdate(
+                    { _id: context.user._id },
+                    { $push: { reviews: review._id } },
+                    { new: true }
+                );
+    
+                return review;
+            }
+    
+            throw new AuthenticationError('You need to be logged in!');
         },
        
     }

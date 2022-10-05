@@ -37,33 +37,33 @@ const typeDefs = gql`
     results: [Results]!
   }
  
-  type playlist {
-    _id: ID
-    products: [Product]
+  type Review{
+    _id:ID
+    reviewText:String
+    createdAt:String
+    email:String
+
   }
   type User {
     _id: ID
-    firstName: String
-    lastName: String
+    username: String
     email: String
+    reviews: [Review]
   }
   type Auth {
     token: ID!
     user: User
   }
   type Query {
-    allGames: Games!
-   searchGame(id: String!): GameSearched!
-    categories: [Category]
-    products(category: ID, name: String): [Product]
-    product(_id: ID!): Product
     users: [User]
-
+    reviews(email: String): [Review]  
+    me: User
+    searchGame(id: String!): GameSearched!
   }
   type Mutation {
-    addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
-    updateUser(firstName: String, lastName: String, email: String, password: String): User
-    updateProduct(_id: ID!, quantity: Int!): Product
+    addUser( username: String!, email: String!, password: String!): Auth
+    updateUser(username: String!, email: String, password: String): User
+    addReview(reviewText: String!): Review
     login(email: String!, password: String!): Auth
   }
 `;

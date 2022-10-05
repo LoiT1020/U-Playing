@@ -17,11 +17,14 @@ const TopGames = () => {
   }
   const shuffle = arr => [...arr].sort(() => Math.random() - 0.5);
 
+ 
   const shuf = shuffle(games)
+  
   return (
     <div>
       <ul>
       {
+        
         shuf.slice(0,10).map(game => (
           <div key={game.id}>
             <Link to={`/games/${game.id}`}>

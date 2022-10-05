@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
-const playlist = require('./List');
 
 
 var validateEmail = function (email) {
@@ -11,16 +10,7 @@ var validateEmail = function (email) {
 };
 
 const userSchema = new Schema({
-  firstName: {
-    type: String,
-    required: true,
-    trim: true
-  },
-  lastName: {
-    type: String,
-    required: true,
-    trim: true
-  },
+  
   username: {
     type: String,
     required: true,
@@ -44,7 +34,7 @@ const userSchema = new Schema({
   },
 
   Reviews:[{
-    type: Schema.type.objectId,
+    type: Schema.Types.ObjectId,
       ref: 'Review'
   }]
   

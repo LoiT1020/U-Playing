@@ -4,7 +4,7 @@ import { ADD_USER } from '../utils/mutations'
 import Auth from '../utils/auth';
 import { Link } from 'react-router-dom';
 const Signup = () => {
-    const [formState, setFormState] = useState({ email: '', password: ''});
+    const [formState, setFormState] = useState({ username: '', email: '', password: ''});
     const [addUser] = useMutation(ADD_USER);
 
     const handleChange = (event) => {
@@ -21,10 +21,10 @@ const Signup = () => {
         event.preventDefault();
         const mutationResponse = await addUser({
           variables: {
+            username: formState.username,
             email: formState.email,
             password: formState.password,
-            firstName: formState.firstName,
-            lastName: formState.lastName,
+            
           },
         });
         const token = mutationResponse.data.addUser.token;
@@ -37,22 +37,12 @@ const Signup = () => {
              <h2>Signup</h2>
       <form onSubmit={handleFormSubmit}>
         <div className="flex-row space-between my-2">
-          <label htmlFor="firstName">First Name:</label>
+          <label htmlFor="firstName">Username:</label>
           <input
-            placeholder="First"
-            name="firstName"
-            type="firstName"
-            id="firstName"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="lastName">Last Name:</label>
-          <input
-            placeholder="Last"
-            name="lastName"
-            type="lastName"
-            id="lastName"
+            placeholder="Username"
+            name="username"
+            type="username"
+            id="username"
             onChange={handleChange}
           />
         </div>
