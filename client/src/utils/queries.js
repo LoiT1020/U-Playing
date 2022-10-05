@@ -41,4 +41,29 @@ query SearchGame($searchGameId: String!) {
       }
     }
   }
+` 
+
+export const QUERY_REVIEWS = gql`
+query Reviews($email: String) {
+  reviews(email: $email) {
+    _id
+    reviewText
+    createdAt
+    email
+  }
+}
+`
+export const QUERY_ME = gql`
+{
+  me{
+    _id
+    username
+    email
+    reviews {
+      _id 
+      reviewText
+      createdAt
+    }
+  }
+}
 `
