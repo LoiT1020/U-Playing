@@ -6,3 +6,6 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/mernshopp
 });
 
 module.exports = mongoose.connection;
+
+
+//mongodb+srv://tranloi781:44556677@cluster0.prvaezj.mongodb.net/?retryWrites=true&w=majority
