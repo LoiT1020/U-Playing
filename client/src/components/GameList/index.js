@@ -28,7 +28,7 @@ const TopGames = () => {
         
         shuf.slice(0,10).map(game => (
           <div key={game.id}>
-            <Link to={`/games/${game.id}`} onClick={Display}>
+            <Link to={`/games/${game.id}`}>
             <h3>{game.name}</h3>
             <img src={game.background_image} width="150" alt="game"/>
             </Link>
