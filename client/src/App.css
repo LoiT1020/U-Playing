@@ -1,3 +1,17 @@
+* {
+  box-sizing: border-box;
+  margin: 30;
+  padding: 5px;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.4;
+  color: #444;
+  background: #fff;
+  height: 100vh;
+}
+
 .App {
   text-align: center;
 }
@@ -14,7 +28,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #ffffff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -36,3 +50,5 @@
     transform: rotate(360deg);
   }
 }
+
+

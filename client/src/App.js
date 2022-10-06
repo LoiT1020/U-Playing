@@ -10,6 +10,7 @@ import Display from './components/Display';
 import Detail from './pages/Detail';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
+import "bootstrap/dist/css/bootstrap.min.css"
 const httpLink = createHttpLink({
   uri: '/graphql'
 });

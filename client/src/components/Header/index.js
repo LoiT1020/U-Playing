@@ -3,6 +3,7 @@ import Nav from '../Nav'
 import Search from '../Search';
 function Header() {
 
+    
     return (
         <header>
             <Nav />
