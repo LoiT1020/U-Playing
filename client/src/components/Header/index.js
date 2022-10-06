@@ -1,6 +1,7 @@
 import React from 'react';
 import Nav from '../Nav'
 import Search from '../Search';
+
 function Header() {
 
     
@@ -8,7 +9,7 @@ function Header() {
         <header>
             <Nav />
             <h1 className='Title'>
-                <a href ="/"> U Playing!?</a>
+                <a href ="/"> Home</a>
             </h1>
             <Search />
         </header>
