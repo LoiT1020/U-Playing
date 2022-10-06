@@ -126,7 +126,7 @@ h3 {
   border: 3px solid #6c7575;
   border-radius: 0.3rem;
   background-color: #e1f5f4;
-  color: #6c7575;;
+  color: #050505;;
 }
 .GameList {
   display: flex;
@@ -135,7 +135,6 @@ h3 {
   margin: 20px;
 }
 .flex-row {
-  display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   margin-left: auto;
@@ -145,4 +144,11 @@ h3 {
 .image {
  width: 150px;
  height: 100px; 
+}
+.flex {
+  list-style-type: none;
+}
+.mx-1 {
+  margin-right: calc(1rem*0.5);
+  margin-left: calc(1rem*0.5);
 }

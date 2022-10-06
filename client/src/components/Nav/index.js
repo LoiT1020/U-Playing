@@ -17,7 +17,8 @@ function showNavigation () {
         );
     }else {
         return (
-            <ul className='flex-row'>
+            <nav>
+            <ul className='flex'>
                 <li className='mx-1'>
                     <Link to ="/login">
                         Login
@@ -30,6 +31,7 @@ function showNavigation () {
                 </li>
                 
             </ul>
+            </nav>
     )
 }
 } 

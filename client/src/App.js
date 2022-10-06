@@ -35,11 +35,11 @@ function App () {
   return (
     <ApolloProvider client={client}>
     <Router>
-      <div className="App">
-      <h1>U Playin!?</h1>
-        <Header className='header' />
-        <form class="form">
-
+        <section id='content'>
+          <form action=''>
+            <h1>U Playin!?</h1>
+        
+             <Header className='header' />
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/signup' element={<Signup/>} />
@@ -47,8 +47,10 @@ function App () {
         <Route path ='/results' element={<Detail />} />
           <Route path ='/games/:id' element={<Display />} />
         </Routes>
+        
+    
         </form>
-      </div>
+        </section>
     </Router>
     </ApolloProvider>
   );
