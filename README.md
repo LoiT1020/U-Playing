@@ -1,5 +1,5 @@
 # U-Playing!?
-# Julia's children
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![U-Playing!?](https://img.shields.io/badge/Game--a--holic-U--Playing!%3F-blue)
 ![Skill](https://img.shields.io/badge/Skill%20included-npm%20HTML%20CSS%20JAVA-blue)
@@ -21,7 +21,7 @@ As a game-a-holic, I want to share the experiences with my favorite games to man
 U-Playing!? is a ready player one forum that gamers can search for theirs favorite games and share their experience, they can also looks for other games and read reviews from other gamers
 
 ## Installation
-Pleas click the link to get the access to the app: [U-Playing!?](https://glacial-reaches-34108.herokuapp.com/).
+Pleas click the link to get the access to the app: [U-Playing!?](https://enigmatic-reaches-24986.herokuapp.com/).
 If you want to install the application, follow the link to [Public Repository](https://github.com/LoiT1020/U-Playing).
 
 ![main page ](./assets/images/main.PNG)
