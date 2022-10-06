@@ -11,7 +11,7 @@ const TopGames = () => {
   const [games, setGames] = useState([])
 
   const fetchGames = () => {
-    fetch(`https://rawg.io/api/games?token&key=${process.env.REACT_APP_API_KEY}`)
+    fetch(`https://rawg.io/api/games?token&key=a5049ad299094eae9b888af53f0bfd05`)
     .then(resp => resp.json())
     .then(({results}) => setGames(results))
   }

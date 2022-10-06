@@ -17,7 +17,7 @@ console.log(location)
       const {id} = useParams();
       console.log(id)
       const getGameDetail =() => {
-          fetch(`https://api.rawg.io/api/games/${id}?token&key=${process.env.REACT_APP_API_KEY}`)
+          fetch(`https://api.rawg.io/api/games/${id}?token&key=a5049ad299094eae9b888af53f0bfd05`)
           .then(response => response.json())
           .then (data => setCurrentGame(data))
       }
