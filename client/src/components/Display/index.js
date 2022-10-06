@@ -23,7 +23,7 @@ console.log(location)
       }
       useEffect(() => {
         getGameDetail();
-    }, [])
+    })
 
     const loggedIn = Auth.loggedIn();
       return (
