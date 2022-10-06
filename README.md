@@ -49,7 +49,7 @@ Gamer can join in the community and sharing their review about games they likes,
 
 and log in into the app
 
-[! login](./assets/images/log%20in.PNG)
+[ login](./assets/images/log%20in.PNG)
 
 
 Once they become member, they can make reviews for their games
