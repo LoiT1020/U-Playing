@@ -11,7 +11,7 @@ const Results = (props) => {
         props.gameResults.map(game => (
           <div key={game.id}>
 
-            <Link to={`/games/${game.id}`} onClick={Display}>
+            <Link to={`/games/${game.id}`} >
              
           
             <h3>{game.name}</h3>
