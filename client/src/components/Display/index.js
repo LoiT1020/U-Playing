@@ -26,23 +26,29 @@ console.log(location)
     }, [])
 
     const loggedIn = Auth.loggedIn();
-      return (
-        <div>
-         <h1>{currentGame.name}</h1>
-        <p dangerouslySetInnerHTML={{__html: currentGame.description}}/>
-         <img src ={currentGame.background_image} width='150' alt={currentGame.name} />
-         <a href={currentGame.website}> {currentGame.website}</a>
-         <p>{currentGame.released}</p>
-        {loggedIn &&(
-          <div className=''>
-        <ReviewForm />
-        
-        </div>
-        )}
-        <ReviewList reviews={reviews} location={location} title="Reviews Left"/>
-        </div>
+    return (
+      <div>
+        <div className='leftContent'>
+       <h1 className='displayH1'>{currentGame.name}</h1>
+       <img src ={currentGame.background_image} className='gamePhoto' alt={currentGame.name} />
+       <a href={currentGame.website}> {currentGame.website}</a>
+       <p>{currentGame.released}</p>
+       </div>
+       <div className='rightContent'>
+      <p dangerouslySetInnerHTML={{__html: currentGame.description}} />
+      </div>
+      {loggedIn &&(
+        <div className=''>
+      <ReviewForm />
+
+      </div>
+      )}
+
+      <ReviewList reviews={reviews} location={location} title="Reviews Left"/>
+
+      </div>
 
 
-      )
-    }
+    )
+  }
   export default Display ;

@@ -21,20 +21,22 @@ const TopGames = () => {
   const shuf = shuffle(games)
   
   return (
-    <div>
-      <ul>
+    <div className='GameList'>
+      
       {
         
-        shuf.slice(0,10).map(game => (
+        shuf.slice(0,12).map(game => (
           <div key={game.id}>
             <Link to={`/games/${game.id}`}>
+
             <h3>{game.name}</h3>
             <img src={game.background_image} width="150" alt="game"/>
+
             </Link>
           </div>
         ))
       }
-      </ul>
+      
     </div>
   )
 }

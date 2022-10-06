@@ -9,7 +9,7 @@ if (!reviews.length ) {
 
 
     return (
-        <div>
+        <div className='Card'>
             <h3>{title}</h3>
           {reviews && 
           reviews.map(review => (
