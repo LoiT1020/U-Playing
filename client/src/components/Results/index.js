@@ -5,7 +5,7 @@ import Display from "../Display";
 const Results = (props) => {
   return (
     <div className="results-container">
-      {props.gameResults.map((game) => (
+      {props.gameResults.map( game => (
         <div key={game.id}>
           <Link to={`/games/${game.id}`}>
             <h3>{game.name}</h3>

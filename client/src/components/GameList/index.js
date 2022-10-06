@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import Display from '../Display';
+import { Link } from 'react-router-dom'
 
 
 const TopGames = () => {
